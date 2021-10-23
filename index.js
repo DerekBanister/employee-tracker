@@ -46,17 +46,72 @@ const db = mysql.createConnection(
 //mainmenu function w/ inquirer, prompts choices for options
 //function for each action? call funciton in switch cases.
 // query db for info in function?
+function mainMenu() {
+  inquirer
+  .prompt({
+    type: "list",
+    name: "mainMenu",
+    message: "What would you like to do?",
+    choices: [
+      "View All Employees",
+      "View All Departments",
+      "View All Roles",
+      "Add Employee",
+      "Add Department",
+      "Add Role",
+      "Update Employee Role",
+      "Exit"
+    ]
+  })
+  .then(function(answer) {
+      //switch cases
+      switch (answer.mainMenu){
+        case "View All Employees":
+          viewAllEmployees();
+          break;
 
+        case "View All Departments":
+          viewAllDepartment();
+          break;
+        
+        case "Add Department":
+          addDepartment();
+        
+        case "Add Role":
+          addRole();
+          break;
+
+        case "View All Roles":
+          viewRoles();
+          break;
+        
+        case "Add Employee":
+          addEmployee();
+          break;
+
+        case "Update Employee Role":
+          updateEmployeeRole();
+          break;
+        
+        case "Exit":
+          db.end()
+          break;
+      //exit just ends prompt, not close server. Want entire program to shut off.
+      }
+  });
+}
+//switch cases working.
+mainMenu();
 
 
 //functions i will need, call in switch cases
-viewAllEmployees();
-viewAllDepartment();
-addRole();
-viewRoles();
-addEmployee();
-updateEmployeeRole();
-addDepartment();
+// viewAllEmployees();
+// viewAllDepartment();
+// addRole();
+// viewRoles();
+// addEmployee();
+// updateEmployeeRole();
+// addDepartment();
 
 
 
