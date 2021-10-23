@@ -49,6 +49,20 @@ const db = mysql.createConnection(
 
 
 
+//functions i will need, call in switch cases
+viewAllEmployees();
+viewAllDepartment();
+addRole();
+viewRoles();
+addEmployee();
+updateEmployeeRole();
+addDepartment();
+
+
+
+
+
+
 
 
 
