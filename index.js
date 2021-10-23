@@ -21,26 +21,24 @@
 //dependencies 
 const mysql = require("mysql2");
 const inquirer = require("inquirer");
-const consoleTable = require("console.table");
-const express = require('express');
+const cTable = require("console.table");
 
-const PORT = process.env.PORT || 3001;
-const app = express();
-
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 
 // Connect to db
 const db = mysql.createConnection(
   {
     host: 'localhost',
     user: 'root',
-    password: 'password',
-    database: 'classlist_db'
+    password: 'password', 
+    database: 'employer_tracker' //had this at classlist_db for a day..................
   },
   console.log(`Connected to the employer_tracker database.`)
 );
 
+db.connect(function (err) {
+  if (err) throw err;
+  mainMenu();
+});
 
 //inquirer prompt using switch cases for choices?
 //mainmenu function w/ inquirer, prompts choices for options
@@ -71,7 +69,7 @@ function mainMenu() {
           break;
 
         case "View All Departments":
-          viewAllDepartment();
+          viewAllDepartments();
           break;
         
         case "Add Department":
@@ -101,23 +99,32 @@ function mainMenu() {
   });
 }
 //switch cases working.
-mainMenu();
-
-
 //functions i will need, call in switch cases
  function viewAllEmployees() {
    //this too way too long
+   //is working as intended
    var querydb = "SELECT employee.id, employee.first_name, employee.last_name, role.title, department.department_name AS department, role.salary FROM employee LEFT JOIN role ON employee.role_id = role.id LEFT JOIN department on role.department_id = department.id"
-      db.query(querydb, function (err, res) {
+     
+   db.query(querydb, function (err, res) {
+     console.log(res);
         console.table(res);
         mainMenu();
       })
   };
 
+function viewAllDepartments() {
+  var querydb = "SELECT * FROM department"
+  db.query(querydb, function (err, res) {
+    console.log(res);
+      console.table(res);
+      mainMenu();
+  })
+};
 
 
 
-// viewAllDepartment();
+
+
 // addRole();
 // viewRoles();
 // addEmployee();
@@ -144,6 +151,3 @@ mainMenu();
 
 
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });

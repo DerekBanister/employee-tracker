@@ -1,19 +1,23 @@
 use employer_tracker;
 
 INSERT INTO department (department_name)
-VALUES ("Sales"), ("Programming"), ("Legal"), ("Marketing"), ("Finance")
+VALUES ("Sales"), 
+("Programming"), 
+("Legal"), 
+("Marketing"), 
+("Finance");
 
 -- filler data
 
-INSERT INTO employee_role (department_id, title, salary)
-VALUES (02, "Senior Programmer", 120000), 
-(02, "Senior Programmer", 120000), 
-(01,"Sales Lead", 60000),
-(01, "Salesperson", 50000), 
-(03, "Lawyer", 160000), 
-(03, "Lawyer", 160000), 
-(04, "Chief Marketing Officer", 200000), 
-(05, "Chief Financial Officer", 210000);
+INSERT INTO role (title, salary, department_id)
+VALUES ("Senior Programmer", 120000, 02), 
+("Lead Programmer", 120000, 02), 
+("Sales Lead", 60000, 01),
+("Salesperson", 50000, 01), 
+("Lawyer", 160000, 03), 
+("Lawyer", 160000, 03), 
+("Chief Marketing Officer", 200000, 04), 
+("Chief Financial Officer", 210000, 05);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES ("Farley", "Chicken", 1, 8), 

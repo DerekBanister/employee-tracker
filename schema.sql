@@ -20,8 +20,8 @@ CREATE TABLE department (
     PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS employee_role;
-CREATE TABLE employee_role (
+DROP TABLE IF EXISTS role;
+CREATE TABLE role (
     id INT NOT NULL auto_increment,
     title VARCHAR(40),
     salary decimal (8,2),
