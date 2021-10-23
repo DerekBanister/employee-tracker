@@ -19,6 +19,6 @@
 // https://www.npmjs.com/package/console.table console table docs
 
 //dependencies 
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const inquirer = require("inquirer");
 const consoleTable = require("console.table");
