@@ -105,7 +105,18 @@ mainMenu();
 
 
 //functions i will need, call in switch cases
-// viewAllEmployees();
+ function viewAllEmployees() {
+   //this too way too long
+   var querydb = "SELECT employee.id, employee.first_name, employee.last_name, role.title, department.department_name AS department, role.salary FROM employee LEFT JOIN role ON employee.role_id = role.id LEFT JOIN department on role.department_id = department.id"
+      db.query(querydb, function (err, res) {
+        console.table(res);
+        mainMenu();
+      })
+  };
+
+
+
+
 // viewAllDepartment();
 // addRole();
 // viewRoles();

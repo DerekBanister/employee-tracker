@@ -5,10 +5,10 @@ VALUES ("Sales"), ("Programming"), ("Legal"), ("Marketing"), ("Finance")
 
 -- filler data
 
-INSERT INTO employee_role (title, salary, department_id)
-VALUES ("Senior Programmer", 120000, 2), ("Senior Programmer", 120000, 2), ("Sales Lead", 60000, 1),
-("Salesperson", 50000, 1), ("Lawyer", 160000, 3), ("Lawyer", 160000, 3), ("Chief Marketing Officer", 200000, 4), 
-("Chief Financial Officer", 210000, 5);
+INSERT INTO employee_role (department_id, title, salary)
+VALUES (02, "Senior Programmer", 120000), (02, "Senior Programmer", 120000), (01,"Sales Lead", 60000),
+(01, "Salesperson", 50000), 0(3, "Lawyer", 160000), (03, "Lawyer", 160000), (04, "Chief Marketing Officer", 200000), 
+(05, "Chief Financial Officer", 210000);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES ("Farley", "Chicken", 1, 8), ("C9", "Perkz", 3, 1), ("Daenerys", "Targaryen", 1, 8), 
