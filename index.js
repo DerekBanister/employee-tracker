@@ -165,13 +165,83 @@ function viewRoles() {
   })
 };
 
+function addEmployee() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "Enter the employee's first name",
+        name: "firstName"
+      },
+      {
+        type: "input",
+        message: "Enter the employee's last name",
+        name: "lastName"
+      },
+      {
+        type: "input",
+        message: "Enter the employee's role ID",
+        name: "addEmployeeRole"
+      },
+      {
+        type: "input",
+        message: "Enter the employee's manager ID",
+        name: "addManangerID"
+      }
+    ])
+    .then(function (res) {
+      const firstName = res.firstName;
+      const lastName = res.lastName;
+      const employeeRole = res.addEmployeeRole;
+      const ManagerID = res.addManagerID;
+      const querydb = `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ("${firstName}", "${lastName}", "${employeeRole}", "${ManagerID}")`;
+
+      db.query (querydb, function (err, res) {
+        if (err) {
+          throw err;
+        }
+
+        console.table(res);
+        mainMenu();
+      })
+    })
+};
+
+function addDepartment() {
+  inquirer
+    .prompt({
+      type: "input",
+      message: "Enter the name of the new department",
+      name: "newDepartment"
+    })
+      .then(function (res) {
+        const newDepartment = res.newDepartment
+        const querydb = `INSERT INTO department (department_name) VALUES ("${newDepartment}")`;
+
+        db.query(querydb, function (err, res) {
+          if (err) {
+            throw err;
+          }
+          console.table(res);
+          mainMenu();
+        })
+      })
+};
 
 
 
 
-// addEmployee();
+
+
+
+
+
+
+
+
+
 // updateEmployeeRole();
-// addDepartment();
+
 
 
 
