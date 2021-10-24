@@ -100,24 +100,68 @@ function mainMenu() {
 }
 //switch cases working.
 //functions i will need, call in switch cases
- function viewAllEmployees() {
-   //this too way too long
+function viewAllEmployees() {
+   //this took way too long
    //is working as intended
    var querydb = "SELECT employee.id, employee.first_name, employee.last_name, role.title, department.department_name AS department, role.salary FROM employee LEFT JOIN role ON employee.role_id = role.id LEFT JOIN department on role.department_id = department.id"
-     
    db.query(querydb, function (err, res) {
-     console.log(res);
+     //console.log(res);
         console.table(res);
         mainMenu();
       })
   };
 
 function viewAllDepartments() {
+
   var querydb = "SELECT * FROM department"
   db.query(querydb, function (err, res) {
-    console.log(res);
+    //console.log(res);
       console.table(res);
       mainMenu();
+  })
+};
+
+function addRole() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "Enter the employee's title",
+        name: "roleTitle"
+      },
+      {
+        type: "input",
+        message: "Enter the employee's salary",
+        name: "roleSalary"
+      },
+      {
+        type: "input",
+        message: "Enter the employee's department ID",
+        name: "roleDept"
+      }
+    ])
+  .then(function (res) {
+    const title = res.roleTitle;
+    const salary = res.roleSalary;
+    const departmentID = res.roleDept;
+    var querydb = `INSERT INTO role (title, salary, department_id) VALUES ("${title}", "${salary}", "${departmentID}")`;
+    db.query(querydb, function (err, res) {
+      if (err) {
+        throw err;
+      }
+      //console.log(res);
+      console.table(res);
+      mainMenu();
+    });
+  });
+};
+
+function viewRoles() {
+  var querydb = "SELECT * FROM department"
+  db.query(querydb, function (err, res) {
+    //console.log(res);
+    console.table(res);
+    mainMenu();
   })
 };
 
@@ -125,8 +169,6 @@ function viewAllDepartments() {
 
 
 
-// addRole();
-// viewRoles();
 // addEmployee();
 // updateEmployeeRole();
 // addDepartment();
