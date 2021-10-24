@@ -20,11 +20,11 @@ VALUES ("Senior Programmer", 120000, 02),
 ("Chief Financial Officer", 210000, 05);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Farley", "Chicken", 1, 8), 
-("C9", "Perkz", 3, 1), 
-("Daenerys", "Targaryen", 1, 8), 
-("Tony", "Stark", 5, 3), 
-("Mace", "Windu", 3, 8), 
-("Jerome", "luvsCats", 2, 5), 
-("Cheng", "Tang", 2, 8), 
-("John", "Wick", 4, 1);
+VALUES ("Farley", "Chicken", 01, 08), 
+("C9", "Perkz", 03, 01), 
+("Daenerys", "Targaryen", 01, 08), 
+("Tony", "Stark", 05, 03), 
+("Mace", "Windu", 03, 08), 
+("Jerome", "luvsCats", 02, 05), 
+("Cheng", "Tang", 02, 08), 
+("John", "Wick", 04, 01);

@@ -193,17 +193,20 @@ function addEmployee() {
       const firstName = res.firstName;
       const lastName = res.lastName;
       const employeeRole = res.addEmployeeRole;
-      const ManagerID = res.addManagerID;
-      const querydb = `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ("${firstName}", "${lastName}", "${employeeRole}", "${ManagerID}")`;
+      const managerID = res.addManagerID;
+      //managerID returning undefined
+      console.log(firstName, lastName, employeeRole);
+      const querydb = `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ("${firstName}", "${lastName}", "${employeeRole}", "${managerID}")`;
 
-      db.query (querydb, function (err, res) {
-        if (err) {
-          throw err;
-        }
 
-        console.table(res);
-        mainMenu();
-      })
+      // db.query (querydb, function (err, res) {
+      //   if (err) {
+      //     throw err;
+      //   }
+
+      //   console.table(res);
+      //   mainMenu();
+      // })
     })
 };
 
