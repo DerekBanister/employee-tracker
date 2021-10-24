@@ -1,6 +1,6 @@
-# Note Taker
+# Employee Tracker
 
-* 
+* This application is driven by Node.JS and MySQL. It is a command line application that creates a database storing information about a companies employees. There are 3 main tables in the database, with those being Role, Department, and Employee. These store information such as first and last name, their department at the company, salary, and position.
 
 
 ![]()
@@ -23,8 +23,6 @@ Steps to install application:
 2. Enter the directory with index.js and run npm install
 3. Run npm start in command line, make sure Node.JS is installed.
 4. Answer prompts
-
-
 
 
 ## Authors

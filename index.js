@@ -186,7 +186,7 @@ function addEmployee() {
       {
         type: "input",
         message: "Enter the employee's manager ID",
-        name: "addManangerID"
+        name: "addManagerID"
       }
     ])
     .then(function (res) {
@@ -195,18 +195,17 @@ function addEmployee() {
       const employeeRole = res.addEmployeeRole;
       const managerID = res.addManagerID;
       //managerID returning undefined
-      console.log(firstName, lastName, employeeRole);
+      //console.log(firstName, lastName, employeeRole);
       const querydb = `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ("${firstName}", "${lastName}", "${employeeRole}", "${managerID}")`;
 
+      db.query (querydb, function (err, res) {
+        if (err) {
+          throw err;
+        }
 
-      // db.query (querydb, function (err, res) {
-      //   if (err) {
-      //     throw err;
-      //   }
-
-      //   console.table(res);
-      //   mainMenu();
-      // })
+        console.table(res);
+        mainMenu();
+      })
     })
 };
 
