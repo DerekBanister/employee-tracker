@@ -228,19 +228,35 @@ function addDepartment() {
       })
 };
 
+function updateEmployeeRole() {
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          message: "Enter the employee's ID you want to be updated",
+          name: "updateEmployee"
+        },
+        {
+          type: "input",
+          message: "Enter the new role ID for the employee",
+          name: "newRole"
+        }
+      ])
+      .then(function (res) {
+        const updateEmployee = res.updateEmployee;
+        const newRole = res.newRole;
 
+        const querydb = `UPDATE employee SET role_id = "${newRole}" WHERE id = "${updateEmploy}"`;
 
-
-
-
-
-
-
-
-
-
-
-// updateEmployeeRole();
+        db.query(querydb, function (err, res) {
+          if (err) {
+            throw err;
+          }
+          console.table(res);
+          mainMenu();
+        })
+      })
+};
 
 
 
