@@ -157,7 +157,7 @@ function addRole() {
 };
 
 function viewRoles() {
-  var querydb = "SELECT * FROM department"
+  var querydb = "SELECT * FROM role"
   db.query(querydb, function (err, res) {
     //console.log(res);
     console.table(res);
@@ -246,7 +246,7 @@ function updateEmployeeRole() {
         const updateEmployee = res.updateEmployee;
         const newRole = res.newRole;
 
-        const querydb = `UPDATE employee SET role_id = "${newRole}" WHERE id = "${updateEmploy}"`;
+        const querydb = `UPDATE employee SET role_id = "${newRole}" WHERE id = "${updateEmployee}"`;
 
         db.query(querydb, function (err, res) {
           if (err) {
