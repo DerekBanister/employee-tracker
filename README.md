@@ -3,7 +3,7 @@
 * This application is driven by Node.JS and MySQL. It is a command line application that creates a database storing information about a companies employees. There are 3 main tables in the database, with those being Role, Department, and Employee. These store information such as first and last name, their department at the company, salary, and position.
 
 
-![]()
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=7Ic2oxbCAp4" target="_blank"><img src="images/employeepic.PNG" alt="Employee Tracker" width="700" height="500"/></a>
 
 
 ## Built With
