@@ -29,6 +29,6 @@ Steps to install application:
 
 * **DEREK BANISTER** 
 
-- [Link to Portfolio Site](https://derekbanister.github.io/First-Portfolio/)
+- [Link to Portfolio Site](https://derekbanister.github.io/portfolio-two/)
 - [Link to Github](https://github.com/DerekBanister)
 - [Link to LinkedIn](https://www.linkedin.com/in/derek-banister/)
